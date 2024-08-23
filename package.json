@@ -1,0 +1,21 @@
+{
+  "name": "cyber254",
+  "version": "1.0.0",
+  "description": "This is a cyber security website code name Cyber254.\r Its meant to create awareness about cyber security threats and protection measures one can take to prevent cyber attacks.\r Copyright; IANMUGO\r Email; Ianduncan240@gmail.com",
+  "main": "server.js",
+  "directories": {
+    "test": "tests"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "axios": "^1.7.4",
+    "body-parser": "^1.20.2",
+    "express": "^4.19.2"
+  }
+}
