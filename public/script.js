@@ -1,5 +1,3 @@
-// script.js
-
 document.querySelector('form').addEventListener('submit', function(event) {
     event.preventDefault();  // Prevent the form from submitting
 
@@ -13,25 +11,6 @@ document.querySelector('form').addEventListener('submit', function(event) {
         // Here, you can add more actions, like sending data to a server.
     }
 });
-
-// Dummy data representing news articles
-const newsArticles = [
-    {
-        title: "Latest Cybersecurity Threats in 2024",
-        summary: "An overview of the most recent cybersecurity threats that are targeting businesses and individuals.",
-        link: "#"
-    },
-    {
-        title: "How to Protect Your Data from Ransomware",
-        summary: "Learn the best practices to protect your data from ransomware attacks.",
-        link: "#"
-    },
-    {
-        title: "The Future of Cybersecurity: Trends to Watch",
-        summary: "Explore the upcoming trends in cybersecurity and what to expect in the next decade.",
-        link: "#"
-    }
-];
 
 // Function to display news articles on the blog page
 function displayNewsArticles() {

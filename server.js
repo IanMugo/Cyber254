@@ -38,7 +38,7 @@ app.use(session({
 // Serve the login page on the root URL
 app.get('/', (req, res) => {
     if (req.session.user) {
-        return res.redirect('/index');
+        return res.redirect('/index ');
     }
     res.redirect('/login');
 });
