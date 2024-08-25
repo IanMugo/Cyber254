@@ -7,34 +7,41 @@
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-        <!-- Navigation Bar -->
-        <header>
-            <nav>
-                <ul>
-                    <li><a href="index.html">Home</a></li>
-                    <li><a href="about.html">About</a></li>
-                    <li><a href="services.html">Services</a></li>
-                    <li><a href="blog.html">Blog</a></li>
-                    <li><a href="contact.html">Contact</a></li>
-                    <li><a href="login.html">Login</a></li>
-                    <li><a href="register.html">Login</a></li>
-                </ul>
-            </nav>
-        </header>
+
     <header>
-        <h1>Login</h1>
+        <div class="logo-container">
+            <img src="Images\logo.png" alt="Website Logo" class="logo">
+        </div>
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="services.html">Services</a></li>
+                <li><a href="blog.html">Blog</a></li>
+                <li><a href="contact.html">Contact</a></li>
+                <li><a href="login.html">Login</a></li>
+                <li><a href="register.html">Register</a></li>
+            </ul>
+        </nav>
     </header>
+
     <section>
-        <form id="login-form" action="/login" method="post">
-            <label for="email">Email:</label>
-            <input type="email" id="email" name="email" required>
-            
-            <label for="password">Password:</label>
-            <input type="password" id="password" name="password" required>
-            
-            <button type="submit">Login</button>
+        <h1>Login</h1>
+        <form action="/register" method="POST">
+            <input type="email" name="email" required placeholder="Email">
+            <br><br>
+            <input type="password" name="password" required placeholder="Password">
+            <br><br>
+            <button type="submit">Register</button>
         </form>
         <p>Don't have an account? <a href="/register">Register here</a></p>
     </section>
+
+        <footer>
+            <p>&copy; 2024 Cyber254. All rights reserved.</p>
+        </footer>
+    
+        <script src="script.js"></script>
+
 </body>
 </html>

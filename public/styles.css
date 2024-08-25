@@ -4,7 +4,7 @@ body {
     line-height: 1.6;
     margin: 0;
     padding: 0;
-    background: linear-gradient(135deg, #5746b9, #274d58, #2a4652);
+    background: linear-gradient(135deg, #786eaf, #274d58, #2a4652);
     color: #e0e0e0;
 }
 
@@ -51,6 +51,19 @@ section {
     background: rgba(255, 255, 255, 0.1);
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
 }
+
+/* Logo container styling */
+.logo-container {
+    text-align: center;
+    margin: 0px 0;
+}
+
+/* Logo image styling */
+.logo {
+    width: 150px; 
+    height: auto; 
+}
+
 
 /* Blog Section Styles */
 #blog {
