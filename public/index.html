@@ -13,14 +13,19 @@
             <img src="Images\logo.png" alt="Website Logo" class="logo">
         </div>
         <nav>
-            <ul>
+            <ul id="nav-links">
                 <li><a href="index.html">Home</a></li>
                 <li><a href="about.html">About</a></li>
                 <li><a href="services.html">Services</a></li>
                 <li><a href="blog.html">Blog</a></li>
                 <li><a href="contact.html">Contact</a></li>
-                <li><a href="login.html">Login</a></li>
-                <li><a href="register.html">Register</a></li>
+                <!-- These links will be dynamically hidden or shown -->
+                <li id="login-link"><a href="login.html">Login</a></li>
+                <li id="register-link"><a href="register.html">Register</a></li>
+                <li id="user-icon" style="display: none;">
+                    <span>Welcome, <span id="user-email"></span>!</span>
+                    <button id="logout-btn">Logout</button>
+                </li>
             </ul>
         </nav>
     </header>

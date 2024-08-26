@@ -1,5 +1,6 @@
+// Prevent form submission if fields are empty
 document.querySelector('form').addEventListener('submit', function(event) {
-    event.preventDefault();  // Prevent the form from submitting
+    event.preventDefault(); // Prevent form submission
 
     const name = document.getElementById('name').value;
     const email = document.getElementById('email').value;
@@ -12,25 +13,11 @@ document.querySelector('form').addEventListener('submit', function(event) {
     }
 });
 
-// Function to display news articles on the blog page
-function displayNewsArticles() {
-    const newsContainer = document.getElementById('news-container');
-    newsArticles.forEach(article => {
-        const articleElement = document.createElement('div');
-        articleElement.className = 'news-article';
-        articleElement.innerHTML = `
-            <h3>${article.title}</h3>
-            <p>${article.summary}</p>
-            <a href="${article.link}">Read more</a>
-        `;
-        newsContainer.appendChild(articleElement);
-    });
-}
-
+// Fetch and display news articles with pagination
 let currentPage = 1;
 const pageSize = 5;
 
-// Function to fetch news articles from server endpoint with pagination and search
+// Fetch news articles from the server
 async function fetchNewsArticles(page = 1, query = 'cybersecurity') {
     try {
         const response = await fetch(`/api/news?page=${page}&pageSize=${pageSize}&query=${query}`);
@@ -42,10 +29,10 @@ async function fetchNewsArticles(page = 1, query = 'cybersecurity') {
     }
 }
 
-// Function to display news articles on the blog page
+// Display news articles
 function displayNewsArticles(articles) {
     const newsContainer = document.getElementById('news-container');
-    newsContainer.innerHTML = ''; // Clear any existing articles
+    newsContainer.innerHTML = ''; // Clear existing articles
 
     articles.forEach(article => {
         const articleElement = document.createElement('div');
@@ -59,7 +46,7 @@ function displayNewsArticles(articles) {
     });
 }
 
-// Function to set up pagination controls
+// Set up pagination controls
 function setupPagination(totalResults, currentPage, pageSize, query) {
     const paginationContainer = document.getElementById('pagination-container');
     paginationContainer.innerHTML = ''; // Clear existing pagination
@@ -75,7 +62,7 @@ function setupPagination(totalResults, currentPage, pageSize, query) {
     }
 }
 
-// Function to handle search form submission
+// Handle search form submission
 function handleSearch(event) {
     event.preventDefault();
     const query = document.getElementById('search-input').value;
@@ -89,4 +76,44 @@ document.getElementById('search-form').addEventListener('submit', handleSearch);
 // Initial fetch when the page loads
 window.onload = () => fetchNewsArticles();
 
+// Manage user session data
+document.addEventListener('DOMContentLoaded', function() {
+    const user = JSON.parse('<%= JSON.stringify(user || null) %>'); // Fetch the user object from server-side
+    const loginLink = document.getElementById('login-link');
+    const registerLink = document.getElementById('register-link');
+    const userIcon = document.getElementById('user-icon');
+    const userEmail = document.getElementById('user-email');
+    const logoutBtn = document.getElementById('logout-btn');
 
+    if (user && user.isLoggedIn) {
+        loginLink.style.display = 'none';
+        registerLink.style.display = 'none';
+        userIcon.style.display = 'block';
+        userEmail.textContent = user.email;
+        logoutBtn.style.display = 'block';
+    } else {
+        userIcon.style.display = 'none';
+        userEmail.textContent = '';
+        logoutBtn.style.display = 'none';
+    }
+});
+
+// Logout function
+function logout() {
+    fetch('/logout', {
+        method: 'GET',
+        credentials: 'same-origin' // Include credentials (cookies) in the request
+    })
+    .then(response => {
+        if (response.ok) {
+            // Redirect to the login page after successful logout
+            window.location.href = '/login';
+        } else {
+            alert('Failed to log out.');
+        }
+    })
+    .catch(error => {
+        console.error('Error during logout:', error);
+        alert('An error occurred during logout.');
+    });
+}

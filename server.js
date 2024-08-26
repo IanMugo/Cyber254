@@ -33,29 +33,47 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use(session({
   secret: process.env.SESSION_SECRET,
   resave: false,
-  saveUninitialized: false,  // Changed to false for better security practices
+  saveUninitialized: false,  // false for better security practices
   cookie: { secure: false }  // Set secure: true if using HTTPS
 }));
 
-// Serve the login page on the root URL
-app.get('/', (req, res) => {
-  if (req.session.user) {
-    return res.redirect('/index');
-  }
-  res.redirect('/login');
+// Serve the index page
+app.get('/index', (req, res) => {
+  res.sendFile(path.join(__dirname, 'public', 'index.html'));
 });
 
-// Serve the login form
+// Define routes for static pages
+app.get('/about', (req, res) => {
+  res.sendFile(path.join(__dirname, 'public', 'about.html'));
+});
+
+app.get('/services', (req, res) => {
+  res.sendFile(path.join(__dirname, 'public', 'services.html'));
+});
+
+app.get('/blog', (req, res) => {
+  res.sendFile(path.join(__dirname, 'public', 'blog.html'));
+});
+
+app.get('/contact', (req, res) => {
+  res.sendFile(path.join(__dirname, 'public', 'contact.html'));
+});
+
+app.get('/register', (req, res) => {
+  res.sendFile(path.join(__dirname, 'public', 'register.html'));
+});
+
 app.get('/login', (req, res) => {
-  if (req.session.user) {
-    return res.redirect('/index');
-  }
   res.sendFile(path.join(__dirname, 'public', 'login.html'));
 });
 
-// Serve the registration form
-app.get('/register', (req, res) => {
-  res.sendFile(path.join(__dirname, 'public', 'register.html'));
+// Handle form submission from contact page
+app.post('/send-message', (req, res) => {
+  const { name, email, message } = req.body;
+  console.log(`Name: ${name}`);
+  console.log(`Email: ${email}`);
+  console.log(`Message: ${message}`);
+  res.send('Thank you for your message. We will get back to you soon.');
 });
 
 // Handle registration form submission
@@ -119,49 +137,14 @@ app.post('/login', async (req, res) => {
   }
 });
 
-// Serve the index page
-app.get('/index', (req, res) => {
-  if (!req.session.user) {
-    return res.redirect('/login');
-  }
-  res.sendFile(path.join(__dirname, 'public', 'index.html'));
-});
-
 // Handle logout
 app.get('/logout', (req, res) => {
   req.session.destroy(err => {
     if (err) {
-      console.error('Error during logout:', err);
-      return res.status(500).send('An error occurred during logout.');
+      return res.status(500).send('Failed to log out.');
     }
     res.redirect('/login');
   });
-});
-
-// Define routes for static pages
-app.get('/about', (req, res) => {
-  res.sendFile(path.join(__dirname, 'public', 'about.html'));
-});
-
-app.get('/services', (req, res) => {
-  res.sendFile(path.join(__dirname, 'public', 'services.html'));
-});
-
-app.get('/blog', (req, res) => {
-  res.sendFile(path.join(__dirname, 'public', 'blog.html'));
-});
-
-app.get('/contact', (req, res) => {
-  res.sendFile(path.join(__dirname, 'public', 'contact.html'));
-});
-
-// Handle form submission from contact page
-app.post('/send-message', (req, res) => {
-  const { name, email, message } = req.body;
-  console.log(`Name: ${name}`);
-  console.log(`Email: ${email}`);
-  console.log(`Message: ${message}`);
-  res.send('Thank you for your message. We will get back to you soon.');
 });
 
 // Endpoint to fetch news articles with pagination and search
