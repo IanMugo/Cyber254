@@ -11,6 +11,22 @@ body {
     color: white;
 }
 
+a:link {
+    color: rgb(192, 92, 10); /* Unvisited link */
+}
+
+a:visited {
+    color: purple; /* Visited link */
+}
+
+a:hover {
+    color: red; /* Mouse over link */
+}
+
+a:active {
+    color: rgb(0, 255, 34); /* Selected link */
+}
+
 /* Header Styles */
 header {
     display: flex;
