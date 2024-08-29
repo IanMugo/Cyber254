@@ -67,6 +67,14 @@ app.get('/login', (req, res) => {
   res.sendFile(path.join(__dirname, 'public', 'login.html'));
 });
 
+app.get('/T&C', (req, res) => {
+  res.sendFile(path.join(__dirname, 'public', 'T&C.html'));
+});
+
+app.get('/privacy', (req, res) => {
+  res.sendFile(path.join(__dirname, 'public', 'privacy.html'));
+});
+
 // Handle form submission from contact page
 app.post('/send-message', (req, res) => {
   const { name, email, message } = req.body;
