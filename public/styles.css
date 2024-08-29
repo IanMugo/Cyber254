@@ -4,8 +4,11 @@ body {
     line-height: 1.6;
     margin: 0;
     padding: 0;
-    background-color: #f5f5f5; /* Lighter shade of gray */
-    color: black;
+    background-image: url('Images/image2.jpg'); 
+    background-size: cover; 
+    background-position: center; 
+    background-attachment: fixed; 
+    color: white;
 }
 
 /* Header Styles */
@@ -13,10 +16,10 @@ header {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    background-color: #eaeaea;
-    color: black;
+    background-color: rgba(51, 51, 51, 0.8); /* Semi-transparent dark gray */
+    color: white;
     padding: 10px 20px;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.5);
     position: relative;
 }
 
@@ -24,7 +27,7 @@ header {
 nav {
     flex: 1;
     display: flex;
-    justify-content: center; /* Center the navigation bar */
+    justify-content: center; 
 }
 
 nav ul {
@@ -39,7 +42,7 @@ nav ul li {
 }
 
 nav ul li a {
-    color: black;
+    color: white; 
     text-decoration: none;
     font-weight: bold;
     padding: 10px 15px;
@@ -48,24 +51,25 @@ nav ul li a {
 }
 
 nav ul li a:hover {
-    background-color: #ddd;
+    background-color: rgba(85, 85, 85, 0.8); /* Semi-transparent gray */
     transform: scale(1.1);
 }
 
 section {
     padding: 40px;
     margin: 20px auto;
-    border: 1px solid #ccc;
+    border: 1px solid rgba(68, 68, 68, 0.8); /* Semi-transparent dark gray border */
     border-radius: 10px;
     max-width: 1200px;
-    background-color: white;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    background-color: rgba(42, 42, 42, 0.8); /* Semi-transparent darker gray */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+    color: white;
 }
 
 /* Logo container styling */
 .logo-container {
     display: flex;
-    align-items: center; /* Vertically center the logo */
+    align-items: center; 
 }
 
 .logo {
@@ -86,32 +90,33 @@ section {
 
 .news-article {
     flex: 1 1 calc(33.333% - 20px);
-    border: 1px solid #ccc;
+    border: 1px solid rgba(68, 68, 68, 0.8); /* Semi-transparent dark gray border */
     border-radius: 10px;
     padding: 20px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    background-color: #f9f9f9;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+    background-color: rgba(51, 51, 51, 0.8); /* Semi-transparent dark gray */
     transition: transform 0.3s, box-shadow 0.3s;
+    color: white;
 }
 
 .news-article:hover {
     transform: translateY(-10px);
-    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.7);
 }
 
 .news-article h3 {
     font-size: 1.4em;
     margin-bottom: 10px;
-    color: black;
+    color: white; 
 }
 
 .news-article p {
     font-size: 0.9em;
-    color: #333;
+    color: #ccc; /* Lighter gray text color */
 }
 
 .news-article a {
-    color: #007acc;
+    color: #4a90e2; /* Blue color for links */
     text-decoration: none;
 }
 
@@ -130,24 +135,24 @@ section {
     padding: 10px;
     width: calc(100% - 120px);
     margin-right: 10px;
-    border: 1px solid #ccc;
+    border: 1px solid rgba(68, 68, 68, 0.8); /* Semi-transparent dark gray border */
     border-radius: 5px;
-    background-color: white;
-    color: black;
+    background-color: rgba(51, 51, 51, 0.8); /* Semi-transparent dark gray */
+    color: white;
 }
 
 #search-form button {
     padding: 10px 20px;
     cursor: pointer;
-    background-color: #007acc;
-    color: white;
+    background-color: #4a90e2; /* Blue button background */
+    color: white; 
     border: none;
     border-radius: 5px;
     transition: background-color 0.3s;
 }
 
 #search-form button:hover {
-    background-color: #005999;
+    background-color: #357abd; /* Darker blue on hover */
 }
 
 /* Pagination Controls Styles */
@@ -161,19 +166,19 @@ section {
 #pagination-container button {
     padding: 8px 15px;
     cursor: pointer;
-    background-color: #007acc;
-    color: white;
+    background-color: #4a90e2; /* Blue button background */
+    color: white; 
     border: none;
     border-radius: 5px;
     transition: background-color 0.3s, transform 0.3s;
 }
 
 #pagination-container button.active {
-    background-color: #005999;
+    background-color: #357abd; /* Darker blue for active button */
 }
 
 #pagination-container button:hover {
-    background-color: #005999;
+    background-color: #357abd; /* Darker blue on hover */
     transform: scale(1.05);
 }
 
@@ -182,14 +187,15 @@ section {
     max-width: 800px;
     margin: 30px auto;
     padding: 20px;
-    background-color: white;
+    background-color: rgba(42, 42, 42, 0.8); /* Semi-transparent darker gray */
     border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+    color: white; 
 }
 
 #about p {
     margin-bottom: 15px;
-    color: black;
+    color: white; 
 }
 
 /* Services Page Styles */
@@ -197,23 +203,24 @@ section {
     max-width: 1000px;
     margin: 30px auto;
     padding: 20px;
-    background-color: white;
+    background-color: rgba(42, 42, 42, 0.8); /* Semi-transparent darker gray */
     border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+    color: white; 
 }
 
 .service {
     margin-bottom: 20px;
     padding: 20px;
-    border: 1px solid #ccc;
+    border: 1px solid rgba(68, 68, 68, 0.8); /* Semi-transparent dark gray border */
     border-radius: 10px;
-    background-color: #f9f9f9;
+    background-color: rgba(51, 51, 51, 0.8); /* Semi-transparent dark gray */
 }
 
 .service h3 {
     margin-top: 0;
     font-size: 1.3em;
-    color: black;
+    color: white; 
 }
 
 /* Contact Page Styles */
@@ -221,16 +228,17 @@ section {
     max-width: 600px;
     margin: 30px auto;
     padding: 20px;
-    background-color: white;
+    background-color: rgba(42, 42, 42, 0.8); /* Semi-transparent darker gray */
     border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+    color: white; 
 }
 
 #contact-form label {
     display: block;
     margin-bottom: 5px;
     font-weight: bold;
-    color: black;
+    color: white; 
 }
 
 #contact-form input[type="text"],
@@ -239,35 +247,34 @@ section {
     width: 100%;
     padding: 10px;
     margin-bottom: 15px;
-    border: 1px solid #ccc;
+    border: 1px solid rgba(68, 68, 68, 0.8); /* Semi-transparent dark gray border */
     border-radius: 5px;
-    background-color: white;
-    color: black;
+    background-color: rgba(51, 51, 51, 0.8); /* Semi-transparent dark gray */
+    color: white; 
 }
 
 #contact-form button {
     padding: 10px 20px;
     border: none;
-    background-color: #007acc;
-    color: white;
+    background-color: #4a90e2; /* Blue button background */
+    color: white; 
     cursor: pointer;
     border-radius: 5px;
     transition: background-color 0.3s;
 }
 
 #contact-form button:hover {
-    background-color: #005999;
+    background-color: #357abd; /* Darker blue on hover */
 }
 
 /* Footer Styles */
 footer {
-    background-color: #eaeaea;
-    color: black;
+    background-color: rgba(51, 51, 51, 0.8); /* Semi-transparent dark gray */
+    color: white;
     text-align: center;
     padding: 10px 0;
     width: 100%;
-    box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.1);
-    position: static; /* Make footer static to only appear at the bottom of the page */
+    box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.5);
 }
 
 /* Responsive Styles */
