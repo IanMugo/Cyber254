@@ -98,6 +98,27 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 });
 
+document.addEventListener("DOMContentLoaded", function () {
+    // Simulate checking if the user is logged in
+    const isLoggedIn = false; // Replace with your actual login check logic
+
+    const loginLink = document.getElementById("login-link");
+    const registerLink = document.getElementById("register-link");
+    const userIcon = document.getElementById("user-icon");
+
+    if (isLoggedIn) {
+        // User is logged in, show the user icon and hide login/register links
+        loginLink.style.display = "none";
+        registerLink.style.display = "none";
+        userIcon.style.display = "block";
+    } else {
+        // User is not logged in, show login/register links and hide user icon
+        loginLink.style.display = "block";
+        registerLink.style.display = "block";
+        userIcon.style.display = "none";
+    }
+});
+
 // Logout function
 function logout() {
     fetch('/logout', {

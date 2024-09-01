@@ -1,0 +1,156 @@
+{
+	"info": {
+		"_postman_id": "781e2dc9-5515-4f31-86f6-522146d311fb",
+		"name": "Cyber254",
+		"description": "Test for the contact form, user registration and login functuionality.",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "37042032"
+	},
+	"item": [
+		{
+			"name": "contact",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "\r\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000\\contact",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"contact"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "register",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3000\\register",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"register"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "login",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3000\\login",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"login"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "index",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3000",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000"
+				}
+			},
+			"response": [
+				{
+					"name": "index",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3000",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000"
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "html",
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Accept-Ranges",
+							"value": "bytes"
+						},
+						{
+							"key": "Cache-Control",
+							"value": "public, max-age=0"
+						},
+						{
+							"key": "Last-Modified",
+							"value": "Sun, 01 Sep 2024 07:56:26 GMT"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"a07-191ac95d644\""
+						},
+						{
+							"key": "Content-Type",
+							"value": "text/html; charset=UTF-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "2567"
+						},
+						{
+							"key": "Date",
+							"value": "Sun, 01 Sep 2024 10:02:14 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"cookie": [],
+					"body": "<!DOCTYPE html>\n<html lang=\"en\">\n    <head>\n        <meta charset=\"UTF-8\">\n        <meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\">\n        <title>Cyber254</title>\n        <link rel=\"stylesheet\" href=\"styles.css\">\r\n\n    </head>\n    <body>\n        <header>\n            <div class=\"logo-container\">\n                <a href=\"index.html\">\n                    <img src=\"Images/logo.png\" alt=\"Website Logo\" class=\"logo\">\r\n            \n                </a>\n            </div>\n            <nav>\n                <ul id=\"nav-links\">\n                    <li>\n                        <a href=\"index.html\">Home</a>\n                    </li>\n                    <li>\n                        <a href=\"about.html\">About</a>\n                    </li>\n                    <li>\n                        <a href=\"services.html\">Services</a>\n                    </li>\n                    <li>\n                        <a href=\"blog.html\">Blog</a>\n                    </li>\n                    <li>\n                        <a href=\"contact.html\">Contact</a>\n                    </li>\n                    <!-- These links will be dynamically hidden or shown -->\n                    <li id=\"login-link\">\n                        <a href=\"login.html\">Login</a>\n                    </li>\n                    <li id=\"register-link\">\n                        <a href=\"register.html\">Register</a>\n                    </li>\n                    <li id=\"user-icon\" style=\"display: none;\">\n                        <span>Welcome, \n                            <span id=\"user-email\"></span>!\n                        </span>\n                        <button id=\"logout-btn\">Logout</button>\n                    </li>\n                </ul>\n            </nav>\n        </header>\n        <section id=\"home\">\n            <h1>Welcome to Cyber254</h1>\n            <p>Your go-to resource for cybersecurity knowledge, services, and practices. </p>\n        </section>\n        <section id=\"about\">\n            <h2>About Us: \n                <a href=\"about.html\">About</a>\n            </h2>\n            <p>We provide top-notch cybersecurity services and education.</p>\n        </section>\n        <section id=\"services\">\n            <h2>Our Services include: \n                <a href=\"services.html\">Services</a>\n            </h2>\n            <ul>\n                <li>Penetration Testing</li>\n                <li>Security Audits</li>\n                <li>Incident Response</li>\n                <li>Trainings and Workshops</li>\n            </ul>\n        </section>\n        <section id=\"blog\">\n            <h2>Latest News: \n                <a href=\"blog.html\">Blog</a>\n            </h2>\n            <p>Stay updated with the latest in cybersecurity by visiting our blog page.</p>\n        </section>\n        <section id=\"contact\">\n            <h2>Contact us through here: \n                <a href=\"contact.html\">Contact</a>\n            </h2>\n        </section>\n        <footer>\n            <p>&copy; 2024 Cyber254. All rights reserved. | Website by Ian Mugo</p>\n            <p>\n                <a href=\"/T&C\">Terms of Service</a> |\n                <a href=\"/privacy\">Privacy Policy</a> |\n                <a href=\"/contact\">Contact Us</a>\n            </p>\n        </footer>\n        <script src=\"script.js\"></script>\n    </body>\n</html>"
+				}
+			]
+		}
+	]
+}
