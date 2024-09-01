@@ -1,23 +1,32 @@
-// Prevent form submission if fields are empty
-document.querySelector('form').addEventListener('submit', function(event) {
-    event.preventDefault(); // Prevent form submission
-
-    const name = document.getElementById('name').value;
-    const email = document.getElementById('email').value;
-
-    if (name === '' || email === '') {
-        alert('Please fill in all fields.');
-    } else {
-        alert('Form submitted successfully!');
-        // Here, you can add more actions, like sending data to a server.
-    }
+// Document ready equivalent
+document.addEventListener('DOMContentLoaded', () => {
+    initializeFormValidation();
+    initializeNewsFetching();
+    initializeUserSession();
+    initializeChartRendering();
 });
 
-// Fetch and display news articles with pagination
+// 1. Prevent form submission if fields are empty
+function initializeFormValidation() {
+    document.querySelector('form').addEventListener('submit', function(event) {
+        event.preventDefault(); // Prevent form submission
+
+        const name = document.getElementById('name').value;
+        const email = document.getElementById('email').value;
+
+        if (name === '' || email === '') {
+            alert('Please fill in all fields.');
+        } else {
+            alert('Form submitted successfully!');
+            // Additional actions like sending data to a server can be added here.
+        }
+    });
+}
+
+// 2. Fetch and display news articles with pagination
 let currentPage = 1;
 const pageSize = 5;
 
-// Fetch news articles from the server
 async function fetchNewsArticles(page = 1, query = 'cybersecurity') {
     try {
         const response = await fetch(`/api/news?page=${page}&pageSize=${pageSize}&query=${query}`);
@@ -29,7 +38,6 @@ async function fetchNewsArticles(page = 1, query = 'cybersecurity') {
     }
 }
 
-// Display news articles
 function displayNewsArticles(articles) {
     const newsContainer = document.getElementById('news-container');
     newsContainer.innerHTML = ''; // Clear existing articles
@@ -46,7 +54,6 @@ function displayNewsArticles(articles) {
     });
 }
 
-// Set up pagination controls
 function setupPagination(totalResults, currentPage, pageSize, query) {
     const paginationContainer = document.getElementById('pagination-container');
     paginationContainer.innerHTML = ''; // Clear existing pagination
@@ -62,7 +69,14 @@ function setupPagination(totalResults, currentPage, pageSize, query) {
     }
 }
 
-// Handle search form submission
+function initializeNewsFetching() {
+    // Handle search form submission
+    document.getElementById('search-form').addEventListener('submit', handleSearch);
+
+    // Initial fetch when the page loads
+    fetchNewsArticles();
+}
+
 function handleSearch(event) {
     event.preventDefault();
     const query = document.getElementById('search-input').value;
@@ -70,14 +84,8 @@ function handleSearch(event) {
     fetchNewsArticles(currentPage, query);
 }
 
-// Event listener for search form
-document.getElementById('search-form').addEventListener('submit', handleSearch);
-
-// Initial fetch when the page loads
-window.onload = () => fetchNewsArticles();
-
-// Manage user session data
-document.addEventListener('DOMContentLoaded', function() {
+// 3. Manage user session data
+function initializeUserSession() {
     const user = JSON.parse('<%= JSON.stringify(user || null) %>'); // Fetch the user object from server-side
     const loginLink = document.getElementById('login-link');
     const registerLink = document.getElementById('register-link');
@@ -91,35 +99,15 @@ document.addEventListener('DOMContentLoaded', function() {
         userIcon.style.display = 'block';
         userEmail.textContent = user.email;
         logoutBtn.style.display = 'block';
+
+        // Set up logout functionality
+        logoutBtn.addEventListener('click', logout);
     } else {
         userIcon.style.display = 'none';
-        userEmail.textContent = '';
         logoutBtn.style.display = 'none';
     }
-});
+}
 
-document.addEventListener("DOMContentLoaded", function () {
-    // Simulate checking if the user is logged in
-    const isLoggedIn = false; // Replace with your actual login check logic
-
-    const loginLink = document.getElementById("login-link");
-    const registerLink = document.getElementById("register-link");
-    const userIcon = document.getElementById("user-icon");
-
-    if (isLoggedIn) {
-        // User is logged in, show the user icon and hide login/register links
-        loginLink.style.display = "none";
-        registerLink.style.display = "none";
-        userIcon.style.display = "block";
-    } else {
-        // User is not logged in, show login/register links and hide user icon
-        loginLink.style.display = "block";
-        registerLink.style.display = "block";
-        userIcon.style.display = "none";
-    }
-});
-
-// Logout function
 function logout() {
     fetch('/logout', {
         method: 'GET',
@@ -127,8 +115,7 @@ function logout() {
     })
     .then(response => {
         if (response.ok) {
-            // Redirect to the login page after successful logout
-            window.location.href = '/login';
+            window.location.href = '/login'; // Redirect to the login page after successful logout
         } else {
             alert('Failed to log out.');
         }
@@ -139,7 +126,7 @@ function logout() {
     });
 }
 
-// Fetch cybercrime news data
+// 4. Fetch, categorize, and render cybercrime news data
 async function fetchCybercrimeNews() {
     const API_KEY = process.env.NEWS_API_KEY; // Replace with your actual API key
     const url = `https://newsapi.org/v2/everything?q=cybercrime&apiKey=${API_KEY}`;
@@ -158,7 +145,6 @@ async function fetchCybercrimeNews() {
     }
 }
 
-// Categorize articles based on keywords
 async function categorizeCybercrimeArticles() {
     const articles = await fetchCybercrimeNews();
     
@@ -189,7 +175,6 @@ async function categorizeCybercrimeArticles() {
     return categories;
 }
 
-// Initialize and render the chart
 async function renderPieChart() {
     const categories = await categorizeCybercrimeArticles();
 
@@ -223,5 +208,6 @@ async function renderPieChart() {
     });
 }
 
-// Call function to render the chart
-document.addEventListener('DOMContentLoaded', renderPieChart);
+function initializeChartRendering() {
+    renderPieChart();
+}
