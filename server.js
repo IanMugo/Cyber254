@@ -1,6 +1,6 @@
 require('dotenv').config();
 const express = require('express');
-const mysql = require('mysql2');
+const mysql2 = require('mysql2');
 const path = require('path');
 const axios = require('axios');
 const bcrypt = require('bcryptjs');
@@ -10,7 +10,7 @@ const bodyParser = require('body-parser');
 const app = express();
 
 // Create a MySQL connection using promises for better async handling
-const db = mysql.createConnection({
+const db = mysql2.createConnection({
   host: process.env.DB_HOST,
   user: process.env.DB_USER,
   password: process.env.DB_PASSWORD,
