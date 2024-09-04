@@ -1,4 +1,3 @@
-// Document ready equivalent
 document.addEventListener('DOMContentLoaded', () => {
     initializeFormValidation();
     initializeNewsFetching();
@@ -9,19 +8,18 @@ document.addEventListener('DOMContentLoaded', () => {
 // 1. Prevent form submission if fields are empty
 function initializeFormValidation() {
     document.querySelector('form').addEventListener('submit', function(event) {
-        event.preventDefault(); // Prevent form submission
-
-        const name = document.getElementById('name').value;
         const email = document.getElementById('email').value;
+        const password = document.getElementById('password').value;
 
-        if (name === '' || email === '') {
+        if (!email || !password) {
+            event.preventDefault(); 
             alert('Please fill in all fields.');
         } else {
-            alert('Form submitted successfully!');
-            // Additional actions like sending data to a server can be added here.
+            
         }
     });
 }
+
 
 // 2. Fetch and display news articles with pagination
 let currentPage = 1;
