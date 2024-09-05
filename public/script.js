@@ -84,7 +84,7 @@ function handleSearch(event) {
 
 // 3. Manage user session data
 function initializeUserSession() {
-    const user = JSON.parse('<%= JSON.stringify(user || null) %>'); // Fetch the user object from server-side
+    const user = JSON.parse('<%= JSON.stringify(user || { isLoggedIn: false }) %>'); // Fetch the user object from server-side
     const loginLink = document.getElementById('login-link');
     const registerLink = document.getElementById('register-link');
     const userIcon = document.getElementById('user-icon');

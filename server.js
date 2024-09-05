@@ -6,7 +6,6 @@ const axios = require('axios');
 const bcrypt = require('bcryptjs');
 const session = require('express-session');
 const bodyParser = require('body-parser');
-
 const app = express();
 
 // Create a MySQL connection using promises for better async handling
@@ -42,12 +41,22 @@ app.get('/', (req, res) => {
   res.redirect('/register');
 });
 
+// Serve the registration page
+app.get('/register', (req, res) => {
+  res.sendFile(path.join(__dirname, 'public', 'register.html'));
+});
+
+// Serve the login page
+app.get('/login', (req, res) => {
+  res.sendFile(path.join(__dirname, 'public', 'login.html'));
+});
+
 // Serve the index page
 app.get('/index', (req, res) => {
   res.sendFile(path.join(__dirname, 'public', 'index.html'));
 });
 
-// Define routes for static pages
+// Define routes for other static pages
 app.get('/about', (req, res) => {
   res.sendFile(path.join(__dirname, 'public', 'about.html'));
 });
@@ -62,14 +71,6 @@ app.get('/blog', (req, res) => {
 
 app.get('/contact', (req, res) => {
   res.sendFile(path.join(__dirname, 'public', 'contact.html'));
-});
-
-app.get('/register', (req, res) => {
-  res.sendFile(path.join(__dirname, 'public', 'register.html'));
-});
-
-app.get('/login', (req, res) => {
-  res.sendFile(path.join(__dirname, 'public', 'login.html'));
 });
 
 app.get('/T&C', (req, res) => {
