@@ -36,9 +36,9 @@ app.use(session({
   cookie: { secure: false }  // Set secure: true if using HTTPS
 }));
 
-// Redirect the root URL to the registration page
+// Redirect the root URL to the index page
 app.get('/', (req, res) => {
-  res.redirect('/register');
+  res.redirect('/index');
 });
 
 // Serve the registration page
@@ -80,7 +80,6 @@ app.get('/T&C', (req, res) => {
 app.get('/privacy', (req, res) => {
   res.sendFile(path.join(__dirname, 'public', 'privacy.html'));
 });
-
 
 // Handle form submission from contact page
 app.post('/send-message', (req, res) => {
