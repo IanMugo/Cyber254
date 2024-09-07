@@ -209,3 +209,6 @@ async function renderPieChart() {
 function initializeChartRendering() {
     renderPieChart();
 }
+
+// Automatically initialize chart rendering on page load
+window.onload = initializeChartRendering;
