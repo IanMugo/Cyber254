@@ -293,6 +293,31 @@ footer {
     box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.5);
 }
 
+/* User Icon and Logout Styles */
+#user-icon {
+    display: flex;
+    align-items: center;
+    color: white;
+}
+
+#user-icon span {
+    margin-right: 10px;
+}
+
+#logout-btn {
+    padding: 5px 10px;
+    border: none;
+    background-color: #e74c3c;
+    color: white;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: background-color 0.3s;
+}
+
+#logout-btn:hover {
+    background-color: #c0392b;
+}
+
 /* Responsive Styles */
 @media (max-width: 768px) {
     header {

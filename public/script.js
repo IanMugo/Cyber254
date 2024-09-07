@@ -108,7 +108,7 @@ function initializeUserSession() {
 
 function logout() {
     fetch('/logout', {
-        method: 'GET',
+        method: 'POST',
         credentials: 'same-origin' // Include credentials (cookies) in the request
     })
     .then(response => {
